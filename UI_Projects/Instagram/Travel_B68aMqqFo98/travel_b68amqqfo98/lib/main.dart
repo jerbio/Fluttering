@@ -3,6 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:travel_b68amqqfo98/classes/Resort.dart';
+import 'widgets/LocationWidget.dart';
 
 void main() => runApp(VacationApp());
 
@@ -13,26 +15,35 @@ class VacationApp extends StatelessWidget {
       title: 'Welcome to Flutter',
       home: Scaffold(
         appBar: AppBar(
-          title: Center(
-          child: Text('Hello World'),
+          title: Row(
+          children:<Widget>[ 
+            IconButton(
+              icon: Icon(Icons.menu),
+              tooltip: 'Menu',
+              onPressed: () {
+                
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.search), 
+              tooltip: 'Search',
+              onPressed: () {
+
+              },
+            )
+          ],
         ),
         ),
         body: Column(
           children: <Widget>[
-            Container(
-              margin: const EdgeInsets.all(10.0),
-              color: Colors.amber[900],
-              // width: 48.0,
-              height: 48.0,
-              child: Text('Bali- Header'),
-            ),
-            Container(
-              margin: const EdgeInsets.all(10.0),
-              color: Colors.green[900],
-              // width: 48.0,
-              height: 48.0,
-              child: Text('Pictures Below'),
-            )
+            LocationWidget(),
+            // Container(
+            //   margin: const EdgeInsets.all(10.0),
+            //   color: Colors.green[900],
+            //   // width: 48.0,
+            //   height: 48.0,
+            //   child: Text('Pictures Below'),
+            // )
           ],
             
           ),
@@ -40,8 +51,3 @@ class VacationApp extends StatelessWidget {
     );
   }
 }
-
-// class PageContainer extends StatefulWidget {
-//   @override
-  
-// }
