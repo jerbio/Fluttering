@@ -16,7 +16,6 @@ class LocationHeaderState extends State<LocationHeader> {
 
 class LocationHeader extends StatefulWidget{
   final Resort resort = Resort.generateRandom();
-  // LocationHeader({this.resort});
   @override
   LocationHeaderState createState() => LocationHeaderState();
 }
