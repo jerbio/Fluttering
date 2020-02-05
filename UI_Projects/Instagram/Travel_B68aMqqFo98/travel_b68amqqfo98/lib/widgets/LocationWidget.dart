@@ -4,14 +4,11 @@ import 'LocationHeader.dart';
 import 'LocationContent.dart';
 
 class LocationWidgetState extends State<LocationWidget> {
-  List<Resort> resorts = Resort.generateRandomResorts(10);
+  final List<Resort> resorts = Resort.generateRandomResorts(10);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Startup Name Generator'),
-      ),
-      body: _renderLocationResult(),
+    return Container(
+      child: _renderLocationResult(),
     );
   }
 
@@ -20,7 +17,7 @@ class LocationWidgetState extends State<LocationWidget> {
       LocationHeader(
         // resort: resorts[0]
         ),
-      // LocationContent(resort: resorts[0]),
+      LocationContent(resort: new Resort()),
     ]);
   }
 }

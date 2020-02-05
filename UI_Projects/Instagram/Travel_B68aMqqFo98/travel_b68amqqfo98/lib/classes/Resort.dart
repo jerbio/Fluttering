@@ -15,7 +15,7 @@ class Resort {
   String _city = "";
   double _costPerNight = 0.0;
   double _starLevel = 0.0;
-  List<String> _images = ["Image0", "Image1", "Image1"];
+  List<String> _images = ["Image0", "Image1", "Image2", "Image3", "Image4"];
 
 
   String get name {

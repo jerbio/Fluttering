@@ -4,14 +4,16 @@ import 'package:travel_b68amqqfo98/classes/Resort.dart';
 
 
 class LocationContentState extends State<LocationContent> {
-  Resort resort;
+  final Resort resort = new Resort();
 
-  LocationContentState({this.resort});
+  LocationContentState();
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 200,
       child: ListView.builder(
+        itemCount: resort.locations.length,
         padding: const EdgeInsets.all(16.0),
         itemBuilder: (context, i) {
           return _buildRow(resort.locations[i]);
@@ -22,7 +24,10 @@ class LocationContentState extends State<LocationContent> {
 }
 
 Widget _buildRow(String locationImage) {
-  return Text(locationImage);
+  return ListTile(
+      title: Text(locationImage
+      ),
+    );
 }
 
 class LocationContent extends StatefulWidget{

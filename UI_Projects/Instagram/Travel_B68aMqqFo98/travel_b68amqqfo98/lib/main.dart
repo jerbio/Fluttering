@@ -34,19 +34,20 @@ class VacationApp extends StatelessWidget {
           ],
         ),
         ),
-        body: Column(
-          children: <Widget>[
-            LocationWidget(),
-            // Container(
-            //   margin: const EdgeInsets.all(10.0),
-            //   color: Colors.green[900],
-            //   // width: 48.0,
-            //   height: 48.0,
-            //   child: Text('Pictures Below'),
-            // )
-          ],
+        body: LocationWidget()
+        // Column(
+        //   children: <Widget>[
+        //     LocationWidget(),
+        //     // Container(
+        //     //   margin: const EdgeInsets.all(10.0),
+        //     //   color: Colors.green[900],
+        //     //   // width: 48.0,
+        //     //   height: 48.0,
+        //     //   child: Text('Pictures Below'),
+        //     // )
+        //   ],
             
-          ),
+        //   ),
       ),
     );
   }
