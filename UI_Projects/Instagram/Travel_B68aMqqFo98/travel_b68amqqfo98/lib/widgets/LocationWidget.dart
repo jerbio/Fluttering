@@ -15,7 +15,6 @@ class LocationWidgetState extends State<LocationWidget> {
   Widget _renderLocationResult() {
     return Column(children: <Widget>[
       LocationHeader(
-        // resort: resorts[0]
         ),
       LocationContent(resort: new Resort()),
     ]);
