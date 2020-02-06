@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:travel_b68amqqfo98/classes/Resort.dart';
+import 'package:travel_b68amqqfo98/classes/City.dart';
 
 class LocationHeaderState extends State<LocationHeader> {
   @override
@@ -8,15 +8,15 @@ class LocationHeaderState extends State<LocationHeader> {
     return Container(
       height: 40.0,
       width: 100.0,
-      child: Text('${widget.resort.name}')
+      child: Text('${widget.city.name}')
     );
   }
 }
 
 
 class LocationHeader extends StatefulWidget{
-  final Resort resort = Resort.generateRandom();
-  // LocationHeader({this.resort});
+  final City city;
+  LocationHeader({this.city});
   @override
   LocationHeaderState createState() => LocationHeaderState();
 }

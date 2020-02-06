@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:travel_b68amqqfo98/classes/Resort.dart';
+import 'package:travel_b68amqqfo98/classes/City.dart';
 import 'LocationHeader.dart';
 import 'LocationContent.dart';
 
 class LocationWidgetState extends State<LocationWidget> {
-  final List<Resort> resorts = Resort.generateRandomResorts(10);
+  final City city = new City();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,9 +15,9 @@ class LocationWidgetState extends State<LocationWidget> {
   Widget _renderLocationResult() {
     return Column(children: <Widget>[
       LocationHeader(
-        // resort: resorts[0]
+        city: city,
         ),
-      LocationContent(resort: new Resort()),
+      LocationContent(city: this.city),
     ]);
   }
 }

@@ -1,38 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:travel_b68amqqfo98/classes/City.dart';
 import 'package:travel_b68amqqfo98/classes/Resort.dart';
+
+import 'ResortWidget.dart';
 
 
 class LocationContentState extends State<LocationContent> {
-  final Resort resort = new Resort();
-
   LocationContentState();
 
   @override
   Widget build(BuildContext context) {
+    City city = widget.city;
     return Container(
       height: 200,
       child: ListView.builder(
-        itemCount: resort.locations.length,
+        itemCount: city.resorts.length,
         padding: const EdgeInsets.all(16.0),
         itemBuilder: (context, i) {
-          return _buildRow(resort.locations[i]);
+          return _buildRow(city.resorts[i]);
         }
       ),
     );
   }
+
+  Widget _buildRow(Resort resort) {
+    return ListTile(
+        title: new ResortWidget(resort: resort,),
+      );
+  }
 }
 
-Widget _buildRow(String locationImage) {
-  return ListTile(
-      title: Text(locationImage
-      ),
-    );
-}
+
 
 class LocationContent extends StatefulWidget{
-    final Resort resort;
-    LocationContent({this.resort});
+    final City city;
+    LocationContent({this.city});
 
     @override
     LocationContentState createState() => LocationContentState();

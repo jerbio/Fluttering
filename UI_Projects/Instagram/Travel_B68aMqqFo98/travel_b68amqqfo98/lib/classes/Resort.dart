@@ -15,6 +15,7 @@ class Resort {
   String _city = "";
   double _costPerNight = 0.0;
   double _starLevel = 0.0;
+  bool _isFavorite = false;
   List<String> _images = ["Image0", "Image1", "Image2", "Image3", "Image4"];
 
 
@@ -26,20 +27,24 @@ class Resort {
     return _desciption;
   }
 
+  bool get isFavorite {
+    return _isFavorite;
+  }
+
   List<String> get locations {
     return _images;
   }
 
   static Map<String, List<String>> locationToResort = {
-    'antigua': ["Mandana Villa"],
-    'bali': ["mandalay"] 
+    'antigua': ["Halcyon Heights", "Valley View"],
+    'bali': ["2-BR Designer", "Tropical Suite Villa", "A Hidden Oasis"] 
   };
   // static List<String> city = ["antigua", "bali"];
   // static List<String> resortLocations = ["antigua", "bali"];
-  static Resort generateRandom () {
+  static Resort generateRandom (String city ) {
     var descriptionText = lipsum.createParagraph();
-    int locationIndex = Random.secure().nextInt(locationToResort.length - 1);
-    String locationKey = locationToResort.keys.toList()[locationIndex];
+    // int locationIndex = Random.secure().nextInt(locationToResort.length);
+    String locationKey = city;// locationToResort.keys.toList()[locationIndex];
     List<String> resortNames = locationToResort[locationKey];
     int resortNameIndex = Random.secure().nextInt(1);
 
@@ -52,10 +57,23 @@ class Resort {
     return retValue;
   }
 
-  static List<Resort> generateRandomResorts(int count) {
+  static Resort generateResortByName(String name, String city) {
+    String descriptionText = lipsum.createParagraph();
+    var retValue = new Resort();
+    retValue._desciption = descriptionText;
+    retValue._starLevel = Random.secure().nextDouble() * _maxStarLevel;
+    retValue._costPerNight = Random.secure().nextDouble() * _maxCostPerNight;
+    retValue._name = name;
+    retValue._city = city;
+    return retValue;
+  }
+
+  static List<Resort> generateRandomResorts(String city) {
     List<Resort> retValue = new List<Resort>();
-    for(int i=0; i< count; i++) {
-      Resort resort = generateRandom();
+    List<String> resortNames = locationToResort[city];
+    for(int i=0; i< resortNames.length; i++) {
+      String name = resortNames[i];
+      Resort resort = generateResortByName(name, city);
       retValue.add(resort);
     }
 
