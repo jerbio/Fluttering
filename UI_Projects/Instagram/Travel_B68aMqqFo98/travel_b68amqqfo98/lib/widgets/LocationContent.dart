@@ -13,7 +13,7 @@ class LocationContentState extends State<LocationContent> {
   Widget build(BuildContext context) {
     City city = widget.city;
     return Container(
-      height: 200,
+      height: 500,
       child: ListView.builder(
         itemCount: city.resorts.length,
         padding: const EdgeInsets.all(16.0),

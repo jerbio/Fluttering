@@ -8,7 +8,7 @@ var uuid = Uuid();
 class Resort {
   
   static const  _maxStarLevel = 5.0;
-  static const _maxCostPerNight = 10000;
+  static const _maxCostPerNight = 1000;
   String _name = "";
   String _id = uuid.v4();
   String _desciption = "";
@@ -16,11 +16,16 @@ class Resort {
   double _costPerNight = 0.0;
   double _starLevel = 0.0;
   bool _isFavorite = false;
-  List<String> _images = ["Image0", "Image1", "Image2", "Image3", "Image4"];
+  List<String> _images = ["0", "1"];
+  int imageIndex = Random.secure().nextInt(1);
 
 
   String get name {
     return _name;
+  }
+
+    String get city {
+    return _city;
   }
 
   String get description {
@@ -33,6 +38,16 @@ class Resort {
 
   List<String> get locations {
     return _images;
+  }
+
+  String get imagePath {
+    String imagePath = _images[imageIndex];
+    String retValue = "images/"+ this.city+"/"+this.name +"/"+imagePath+".jpg";
+    return retValue;
+  }
+
+  double get costPertNight {
+    return this._costPerNight;
   }
 
   static Map<String, List<String>> locationToResort = {
@@ -50,8 +65,8 @@ class Resort {
 
     var retValue = new Resort();
     retValue._desciption = descriptionText;
-    retValue._starLevel = Random.secure().nextDouble() * _maxStarLevel;
-    retValue._costPerNight = Random.secure().nextDouble() * _maxCostPerNight;
+    retValue._starLevel = (Random.secure().nextDouble() * _maxStarLevel).round().roundToDouble();
+    retValue._costPerNight = (Random.secure().nextDouble() * _maxCostPerNight).round().roundToDouble();
     retValue._name = resortNames[resortNameIndex];
     retValue._city = locationKey;
     return retValue;
@@ -62,7 +77,7 @@ class Resort {
     var retValue = new Resort();
     retValue._desciption = descriptionText;
     retValue._starLevel = Random.secure().nextDouble() * _maxStarLevel;
-    retValue._costPerNight = Random.secure().nextDouble() * _maxCostPerNight;
+    retValue._costPerNight = (Random.secure().nextDouble() * _maxCostPerNight).roundToDouble();
     retValue._name = name;
     retValue._city = city;
     return retValue;
