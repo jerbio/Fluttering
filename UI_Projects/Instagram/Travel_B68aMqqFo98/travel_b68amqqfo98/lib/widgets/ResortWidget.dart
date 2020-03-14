@@ -1,4 +1,5 @@
-import 'dart:math';
+// import 'dart:html';
+// import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,35 +7,111 @@ import 'package:travel_b68amqqfo98/classes/Resort.dart';
 import 'package:travel_b68amqqfo98/widgets/ResortPreview.dart';
 
 class ResortWidgetState extends State<ResortWidget> {
-  bool isSlidForward = Random.secure().nextBool();
+  bool isSlidForward = false;
   ResortWidgetState();
 
   @override
   Widget build(BuildContext context) {
     Resort resort = widget.resort;
-    double left = isSlidForward ? -50 : 0;
-    return Stack(
-      children: [
-        Container(
-          height: 150,
-          color: Colors.red,
-        ),
-        Positioned(
-          left: 200,
-          child: Column(
-          children: <Widget>[
-          Text("Location"),
-          Text("Message"),
-          Text("info")
-        ]),),
-        AnimatedPositioned(
-          left: left,
-          duration: Duration(milliseconds: 500),
-          width: 350,
-          child: new ResortPreview(resort),
-        ),
-      ]
-    );
+    double right = isSlidForward ? -130 : -185;
+    return Container(
+      height: 150,
+      width: 100,
+      color: Colors.transparent,
+      child: new Container(
+            decoration: new BoxDecoration(
+              color: Colors.transparent,
+              borderRadius: new BorderRadius.only(
+                topLeft: const Radius.circular(20.0),
+                topRight: const Radius.circular(20.0),
+                bottomLeft: const Radius.circular(20.0),
+                bottomRight: const Radius.circular(20.0),
+              )
+            ),
+            child: Stack (
+              children: [
+                Container(
+                  height: 150,
+                ),
+                Positioned(
+                  left: 280,
+                  height: 150,
+                  child: Container(
+                    width:65,
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    // margin: const EdgeInsets.symmetric(horizontal: 15.0),
+                    decoration: new BoxDecoration(
+                      color: const Color.fromARGB(255, 48, 148, 110),
+                      borderRadius: new BorderRadius.only(
+                        // topLeft: const Radius.circular(20.0),
+                        topRight: const Radius.circular(25.0),
+                        // bottomLeft: const Radius.circular(0.0),
+                        bottomRight: const Radius.circular(25.0),
+                      )
+                    ),
+                    // color: Colors.red,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        InkWell(
+                          child: Icon(
+                            Icons.location_on,
+                            color: Colors.white,
+                          ),
+                        ),
+                        InkWell(
+                          child: Icon(
+                            Icons.message,
+                            color: Colors.white,
+                          ),
+                        ),
+                        InkWell(
+                          child: Icon(
+                            Icons.info_outline,
+                            color: Colors.white,
+                          ),
+                        )
+                    ])
+                  ),
+                ),
+                AnimatedPositioned(
+                  right: right,
+                  duration: Duration(milliseconds: 100),
+                  width: 410,
+                  height: 150,
+                  child: new Container(
+                    decoration: new BoxDecoration(
+                      // color: Colors.red,
+                      borderRadius: new BorderRadius.only(
+                        topLeft: const Radius.circular(20.0),
+                        topRight: const Radius.circular(20.0),
+                        bottomLeft: const Radius.circular(20.0),
+                        bottomRight: const Radius.circular(20.0),
+                      )
+                    ),
+                    child: 
+                    // Container(
+                    //   color: Colors.transparent
+                    // )
+                    
+                    InkWell(
+                      child: new ResortPreview(resort),
+                      onTap: () {
+                        setState(() {
+                          this.isSlidForward = !this.isSlidForward;
+                        });
+                        
+                      }
+                    )
+                  )
+                  
+                ),
+              ]
+          )
+      )
+      
+      );
   }
 }
 
@@ -46,3 +123,5 @@ class ResortWidget extends StatefulWidget{
     @override
     ResortWidgetState createState() => ResortWidgetState();
 }
+
+

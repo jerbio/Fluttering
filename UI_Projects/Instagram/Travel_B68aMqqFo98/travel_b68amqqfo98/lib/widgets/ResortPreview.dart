@@ -10,8 +10,11 @@ class ResortPreview extends StatelessWidget{
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        Image.asset(this.resort.imagePath,
-        fit: BoxFit.cover,
+        ClipRRect(
+            borderRadius: BorderRadius.circular(20.0),
+            child: Image.asset(this.resort.imagePath,
+              fit: BoxFit.cover,
+            ),
         ),
         Container(
           margin: const EdgeInsets.symmetric(vertical: 120.0),
@@ -19,10 +22,12 @@ class ResortPreview extends StatelessWidget{
           child: Row(children: <Widget>[
             Text("${resort.name}"),
             Text("${resort.costPertNight}")
-          ],
+            ],
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
-        ),)
+          ),
+          
+        )
       ]);
   }
 }
