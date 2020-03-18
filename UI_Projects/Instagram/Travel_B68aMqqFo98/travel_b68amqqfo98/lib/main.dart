@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
-import 'package:travel_b68amqqfo98/classes/Resort.dart';
 import 'widgets/LocationWidget.dart';
 
 void main() => runApp(VacationApp());

@@ -13,14 +13,16 @@ class ResortWidgetState extends State<ResortWidget> {
   @override
   Widget build(BuildContext context) {
     Resort resort = widget.resort;
-    double right = isSlidForward ? -130 : -185;
+    double right = isSlidForward ? -65 : -100;
     return Container(
       height: 150,
-      width: 100,
-      color: Colors.transparent,
+      width: 50,
+      color: Colors.red,
+      margin: const EdgeInsets.symmetric(horizontal: 0.0),
       child: new Container(
+            width: 100,
             decoration: new BoxDecoration(
-              color: Colors.transparent,
+              color: Colors.yellow,
               borderRadius: new BorderRadius.only(
                 topLeft: const Radius.circular(20.0),
                 topRight: const Radius.circular(20.0),
@@ -38,18 +40,13 @@ class ResortWidgetState extends State<ResortWidget> {
                   height: 150,
                   child: Container(
                     width:65,
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    // margin: const EdgeInsets.symmetric(horizontal: 15.0),
                     decoration: new BoxDecoration(
                       color: const Color.fromARGB(255, 48, 148, 110),
                       borderRadius: new BorderRadius.only(
-                        // topLeft: const Radius.circular(20.0),
                         topRight: const Radius.circular(25.0),
-                        // bottomLeft: const Radius.circular(0.0),
                         bottomRight: const Radius.circular(25.0),
                       )
                     ),
-                    // color: Colors.red,
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -8,7 +8,9 @@ class LocationHeaderState extends State<LocationHeader> {
     return Container(
       height: 40.0,
       width: 100.0,
-      child: Text('${widget.city.name}')
+      child: Column(children: <Widget>[
+        Text('${widget.city.name}')
+      ],)
     );
   }
 }
