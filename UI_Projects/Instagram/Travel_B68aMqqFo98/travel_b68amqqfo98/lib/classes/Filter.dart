@@ -1,6 +1,6 @@
 
 class Filter {
-  String _filterType;
+  String _filterType= "DEFAULT";
   String _name;
 
   Filter() {
@@ -13,6 +13,10 @@ class Filter {
 
   set filterType(val) {
     _filterType = val;
+  }
+
+  set name(val) {
+    _name = val;
   }
 
   String get name {

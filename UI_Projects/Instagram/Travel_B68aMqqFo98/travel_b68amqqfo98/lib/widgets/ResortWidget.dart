@@ -13,16 +13,15 @@ class ResortWidgetState extends State<ResortWidget> {
   @override
   Widget build(BuildContext context) {
     Resort resort = widget.resort;
-    double right = isSlidForward ? -65 : -100;
+    double right = isSlidForward ? -55 : -100;
     return Container(
+      padding:  const EdgeInsets.only(right: 20.0),
       height: 150,
       width: 50,
-      color: Colors.red,
       margin: const EdgeInsets.symmetric(horizontal: 0.0),
       child: new Container(
             width: 100,
             decoration: new BoxDecoration(
-              color: Colors.yellow,
               borderRadius: new BorderRadius.only(
                 topLeft: const Radius.circular(20.0),
                 topRight: const Radius.circular(20.0),
@@ -36,7 +35,7 @@ class ResortWidgetState extends State<ResortWidget> {
                   height: 150,
                 ),
                 Positioned(
-                  left: 280,
+                  left: 290,
                   height: 150,
                   child: Container(
                     width:65,
@@ -51,23 +50,32 @@ class ResortWidgetState extends State<ResortWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                        InkWell(
-                          child: Icon(
-                            Icons.location_on,
-                            color: Colors.white,
-                          ),
+                        Container(
+                          margin:  const EdgeInsets.only(left: 15.0),
+                          child: InkWell(
+                            child: Icon(
+                              Icons.location_on,
+                              color: Colors.white,
+                            ),
+                          )
                         ),
-                        InkWell(
-                          child: Icon(
-                            Icons.message,
-                            color: Colors.white,
-                          ),
+                        Container(
+                          margin:  const EdgeInsets.only(left: 15.0),
+                          child: InkWell(
+                            child: Icon(
+                              Icons.message,
+                              color: Colors.white,
+                            ),
+                          )
                         ),
-                        InkWell(
-                          child: Icon(
-                            Icons.info_outline,
-                            color: Colors.white,
-                          ),
+                        Container(
+                          margin:  const EdgeInsets.only(left: 15.0),
+                          child: InkWell(
+                            child: Icon(
+                              Icons.info_outline,
+                              color: Colors.white,
+                            ),
+                          )
                         )
                     ])
                   ),

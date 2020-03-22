@@ -16,7 +16,7 @@ class LocationContentState extends State<LocationContent> {
       height: 500,
       child: ListView.builder(
         itemCount: city.resorts.length,
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(0.0),
         itemBuilder: (context, i) {
           return _buildRow(city.resorts[i]);
         }

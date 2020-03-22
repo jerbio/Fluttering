@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_b68amqqfo98/classes/City.dart';
 
-class LocationHeaderState extends State<LocationHeader> {
+class LocationHeaderWidgetState extends State<LocationHeaderWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,9 +16,9 @@ class LocationHeaderState extends State<LocationHeader> {
 }
 
 
-class LocationHeader extends StatefulWidget{
+class LocationHeaderWidget extends StatefulWidget {
   final City city;
-  LocationHeader({this.city});
+  LocationHeaderWidget({this.city});
   @override
-  LocationHeaderState createState() => LocationHeaderState();
+  LocationHeaderWidgetState createState() => LocationHeaderWidgetState();
 }
