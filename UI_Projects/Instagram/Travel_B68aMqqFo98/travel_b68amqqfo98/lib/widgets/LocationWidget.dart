@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_b68amqqfo98/classes/City.dart';
-import 'LocationHeader.dart';
+import 'package:travel_b68amqqfo98/widgets/FilterSectionWidget.dart';
+import 'LocationHeaderWidget.dart';
 import 'LocationContent.dart';
 
 class LocationWidgetState extends State<LocationWidget> {
@@ -14,9 +15,10 @@ class LocationWidgetState extends State<LocationWidget> {
 
   Widget _renderLocationResult() {
     return Column(children: <Widget>[
-      LocationHeader(
+      LocationHeaderWidget(
         city: city,
         ),
+      FilterSectionWidget(),
       LocationContent(city: this.city),
     ]);
   }
